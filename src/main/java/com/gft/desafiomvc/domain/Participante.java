@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Table(name = "PARTICIPANTES")
@@ -23,4 +24,7 @@ public class Participante extends AbstractEntity<Long>{
     @NotEmpty(message = "Quatro letras não podem estar em branco")
     @Size(min = 4, max = 4, message = "Devem ser quatro letas")
     private String quatroLetras;
+
+    @ManyToMany
+    private List<Atividade> atividades;
 }

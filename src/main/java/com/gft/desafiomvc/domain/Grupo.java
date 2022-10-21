@@ -1,12 +1,12 @@
 package com.gft.desafiomvc.domain;
 
 import javax.persistence.*;
-
+import java.util.List;
 
 
 @Entity
 @Table(name = "GRUPOS")
-public class Grupo extends AbstractEntity<Long>{
+public class Grupo extends AbstractEntity<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,6 +18,8 @@ public class Grupo extends AbstractEntity<Long>{
     @Column(nullable = false, length = 10000)
     private int quantidadeDeParticipante;
 
+    @OneToMany
+    private List<Participante> participantes;
 
 
 }
