@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+
+  <title>EventosApp</title>
+</head>
+<body>
+
+<h1>Cadastro de Eventos</h1>
+<form th:object="${evento}" method="post">
+  Nome: <input type="text" value="" name="nome"/>
+  DataEntrada: <input type="date" value="" name="dataEntrada"/>
+  DataSaida: <input type="date" value="" name="dataSaida"/>
+
+
+  <button type="submit">Salvar</button>
+</form>
+
+</body>
+</html>

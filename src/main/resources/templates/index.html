@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <title>Projeto GFT Milhas</title>
+</head>
+<body>
+<h1>
+    Projeto GFT Milhas
+</h1>
+<h3><a href="/cadastrarEvento"> Cadastrar Evento</a></h3>
+<div th:each="evento : ${eventos}">
+    <div class="row">
+        <p><span th:text="${evento.nome}"></span></p>
+        <p><span th:text="${evento.dataEntrada}"></span></p>
+        <p><span th:text="${evento.dataSaida}"></span></p>
+
+    </div>
+</div>
+
+</body>

@@ -5,12 +5,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class HomeController {
+public class indexController {
 
 
     @GetMapping("/")
     public String nome() {
-        return "/home";
+        return "/index";
     }
 
 }
