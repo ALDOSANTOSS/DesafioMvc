@@ -1,12 +1,9 @@
 package com.gft.desafiomvc.repository;
 
-import com.gft.desafiomvc.models.Atividade;
+import com.gft.desafiomvc.models.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AtividadeRepository  extends JpaRepository<Atividade, Long> {
-
-
-
+public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 }

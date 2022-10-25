@@ -3,6 +3,7 @@ package com.gft.desafiomvc.web.controller;
 
 import com.gft.desafiomvc.models.Evento;
 import com.gft.desafiomvc.repository.EventoRepository;
+import com.gft.desafiomvc.service.EventoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ public class EventoController {
 
 
     @Autowired
-    private EventoRepository eventoRepository;
+    private EventoService eventoService;
 
 
 
@@ -26,7 +27,7 @@ public class EventoController {
 
     @RequestMapping(value = "/cadastrarEvento", method = RequestMethod.POST)
     public String form(Evento evento) {
-        eventoRepository.save(evento);
+        eventoService.saveEvento(evento);
         return "redirect:/cadastrarEvento";
     }
 
@@ -34,7 +35,7 @@ public class EventoController {
     @RequestMapping("/eventos")
     public ModelAndView listaEventos() {
         ModelAndView mv = new ModelAndView("index");
-        Iterable<Evento> eventos = eventoRepository.findAll();
+        Iterable<Evento> eventos = eventoService.listarEvento();
         mv.addObject("eventos", eventos);
         return mv;
     }
