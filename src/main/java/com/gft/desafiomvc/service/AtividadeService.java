@@ -21,6 +21,10 @@ public class AtividadeService {
         atividadeRepository.save(atividade);
     }
 
+    public void delete(Long id){
+        atividadeRepository.delete(id);
+    }
+
 
 
     public Atividade buscarPorId(Long id) throws Exception {

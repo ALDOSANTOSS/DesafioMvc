@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface AtividadeRepository  extends JpaRepository<Atividade, Long> {
 
 
+    void delete(Long id);
 }

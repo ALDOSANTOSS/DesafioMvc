@@ -27,7 +27,6 @@ public class AtividadeController {
     public String form(Atividade atividade) {
         atividadeRepository.save(atividade);
 
-
         return "redirect:/cadastrarAtividade";
     }
 
