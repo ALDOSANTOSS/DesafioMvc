@@ -18,4 +18,15 @@
     </div>
 </div>
 
+<h3><a href="/cadastrarAtividade"> Atividades</a></h3>
+<div th:each="atvidade : ${atividades}">
+    <div class="row">
+        <p><span th:text="${atividade.nome}"></span></p>
+        <p><span th:text="${atividade.dataEntrada}"></span></p>
+        <p><span th:text="${atividade.dataSaida}"></span></p>
+        <p><span th:text="${atividade.eventos}"></span></p>
+
+    </div>
+</div>
+
 </body>

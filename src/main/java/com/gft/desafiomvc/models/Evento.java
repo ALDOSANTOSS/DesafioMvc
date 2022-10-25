@@ -7,13 +7,13 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "EVENTOS")
+
 public class Evento implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
 
     private String nome;
@@ -21,10 +21,10 @@ public class Evento implements Serializable {
 
     private String dataSaida;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "eventos")
     private List<Atividade> atividades;
 
-    @OneToMany
+   @OneToMany(cascade = CascadeType.ALL, mappedBy = "eventos")
     private List<Grupo> grupos;
 
 

@@ -8,14 +8,14 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "PARTICIPANTES")
+
 public class Participante implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long codigo;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @NotEmpty(message = "Nome não pode ser vazio")
     @Column(nullable = false, unique = true)
@@ -29,16 +29,19 @@ public class Participante implements Serializable{
     private String quatroLetras;
 
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Grupo> grupos;
+
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "participantes")
+    private List<Atividade> atividades;
 
 
     public Long getCodigo() {
-        return codigo;
+        return id;
     }
 
     public void setCodigo(Long codigo) {
-        this.codigo = codigo;
+        this.id = id;
     }
 
     public String getNome() {

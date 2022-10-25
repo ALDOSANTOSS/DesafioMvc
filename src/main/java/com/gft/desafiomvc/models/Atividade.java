@@ -7,23 +7,25 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "ATIVIDADES")
+
 public class Atividade implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
 
     @Column(nullable = false, unique = true)
     private String nome;
 
     @Column(name = "data_entrada", nullable = false, columnDefinition = "DATE")
-    private LocalDate dataEntrada;
+    private String dataEntrada;
     @Column(name = "data_saida", columnDefinition = "DATE")
-    private LocalDate dataSaida;
+    private String dataSaida;
+
+    @ManyToOne()
+    private Evento eventos;
 
     @ManyToMany
     private List<Participante> participantes;
@@ -45,19 +47,36 @@ public class Atividade implements Serializable {
         this.nome = nome;
     }
 
-    public LocalDate getDataEntrada() {
+    public String getDataEntrada() {
         return dataEntrada;
     }
 
-    public void setDataEntrada(LocalDate dataEntrada) {
+    public void setDataEntrada(String dataEntrada) {
         this.dataEntrada = dataEntrada;
     }
 
-    public LocalDate getDataSaida() {
+    public String getDataSaida() {
         return dataSaida;
     }
 
-    public void setDataSaida(LocalDate dataSaida) {
+    public void setDataSaida(String dataSaida) {
         this.dataSaida = dataSaida;
     }
+
+    public Evento getEventos() {
+        return eventos;
+    }
+
+    public void setEventos(Evento eventos) {
+        this.eventos = eventos;
+    }
+
+    public List<Participante> getParticipantes() {
+        return participantes;
+    }
+
+    public void setParticipantes(List<Participante> participantes) {
+        this.participantes = participantes;
+    }
+
 }
