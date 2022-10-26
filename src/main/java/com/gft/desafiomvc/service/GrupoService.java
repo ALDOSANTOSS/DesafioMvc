@@ -16,21 +16,21 @@ public class GrupoService {
     private GrupoRepository grupoRepository;
 
 
-    public void saveGrupo(Grupo grupo){
+    public void saveGrupo(Grupo grupo) {
         grupoRepository.save(grupo);
     }
 
-    public void deleteGrupo(Long id){
+    public void deleteGrupo(Long id) {
         grupoRepository.deleteById(id);
     }
 
-    public  List<Grupo> listarGrupo(){
+    public List<Grupo> listarGrupo() {
         return grupoRepository.findAll();
     }
 
-    public Grupo obterEvento(Long id)throws Exception{
+    public Grupo obterEvento(Long id) throws Exception {
         Optional<Grupo> grupo = grupoRepository.findById(id);
-        if (grupo.isEmpty()){
+        if (grupo.isEmpty()) {
             throw new Exception("Grupo não encontrado");
         }
         return grupo.get();

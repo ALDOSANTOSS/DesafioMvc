@@ -40,6 +40,17 @@
     </div>
 </div>
 
+<h3><a href="/cadastrarGrupo"> Cadastrar Grupo</a></h3>
+<div th:each="grupo : ${grupos}">
+    <div class="row">
+        <p><span th:text="${grupo.nome}"></span></p>
+        <p><span th:number="${grupo.quantidadeDeParticipante}"></span></p>
+
+
+
+    </div>
+</div>
+
 
 
 
