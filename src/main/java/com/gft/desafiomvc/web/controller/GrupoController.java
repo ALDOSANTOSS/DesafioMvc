@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class GrupoController {
@@ -26,6 +27,18 @@ public class GrupoController {
         return "redirect:/cadastrarGrupo";
 
     }
+
+
+    @RequestMapping("/grupos")
+    public ModelAndView listaGrupo(){
+        ModelAndView mv = new ModelAndView("index");
+        Iterable<Grupo> grupos = grupoService.listarGrupo();
+        mv.addObject("grupos",grupos);
+        return mv;
+    }
+
+
+
 
 
 }
