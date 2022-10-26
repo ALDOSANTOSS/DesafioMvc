@@ -18,7 +18,7 @@
     </div>
 </div>
 
-<h3><a href="/cadastrarAtividade"> Atividades</a></h3>
+<h3><a href="/cadastrarAtividade"> Cadastrar Atividades</a></h3>
 <div th:each="atvidade : ${atividades}">
     <div class="row">
         <p><span th:text="${atividade.nome}"></span></p>
@@ -28,5 +28,20 @@
 
     </div>
 </div>
+
+<h3><a href="/cadastrarParticipante"> Cadastrar Participantes</a></h3>
+<div th:each="participante : ${participantes}">
+    <div class="row">
+        <p><span th:text="${participante.nome}"></span></p>
+        <p><span th:text="${participante.email}"></span></p>
+        <p><span th:text="${participante.quatroletra}"></span></p>
+
+
+    </div>
+</div>
+
+
+
+
 
 </body>
