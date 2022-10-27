@@ -3,12 +3,20 @@
 
 <head>
     <title>Projeto GFT Milhas</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
 <h1>
     Projeto GFT Milhas
 </h1>
-<h3><a href="/cadastrarEvento"> Cadastrar Evento</a></h3>
+<h3><a href="/cadastrarEvento" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i> Cadastrar Evento</a></h3>
+
 <div th:each="evento : ${eventos}">
     <div class="row">
         <p><span th:text="${evento.nome}"></span></p>
@@ -18,7 +26,7 @@
     </div>
 </div>
 
-<h3><a href="/cadastrarAtividade"> Cadastrar Atividades</a></h3>
+<h3><a href="/cadastrarAtividade" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i> Cadastrar Atividades</a></h3>
 <div th:each="atvidade : ${atividades}">
     <div class="row">
         <p><span th:text="${atividade.nome}"></span></p>
@@ -29,7 +37,7 @@
     </div>
 </div>
 
-<h3><a href="/cadastrarParticipante"> Cadastrar Participantes</a></h3>
+<h3><a href="/cadastrarParticipante" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i> Cadastrar Participantes</a></h3>
 <div th:each="participante : ${participantes}">
     <div class="row">
         <p><span th:text="${participante.nome}"></span></p>
@@ -40,7 +48,7 @@
     </div>
 </div>
 
-<h3><a href="/cadastrarGrupo"> Cadastrar Grupo</a></h3>
+<h3><a href="/cadastrarGrupo" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i> Cadastrar Grupo</a></h3>
 <div th:each="grupo : ${grupos}">
     <div class="row">
         <p><span th:text="${grupo.nome}"></span></p>
@@ -50,6 +58,7 @@
 
     </div>
 </div>
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 
 
 
