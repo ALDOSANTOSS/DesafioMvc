@@ -32,9 +32,9 @@ public class EventoController {
     }
 
 
-    @RequestMapping("/eventos")
+    @RequestMapping(value = "/eventos",method = RequestMethod.GET)
     public ModelAndView listaEventos() {
-        ModelAndView mv = new ModelAndView("index");
+        ModelAndView mv = new ModelAndView("listaEvento.html");
         Iterable<Evento> eventos = eventoService.listarEvento();
         mv.addObject("eventos", eventos);
         return mv;

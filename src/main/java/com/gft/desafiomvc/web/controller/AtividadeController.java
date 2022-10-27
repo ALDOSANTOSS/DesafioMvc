@@ -2,9 +2,6 @@ package com.gft.desafiomvc.web.controller;
 
 
 import com.gft.desafiomvc.models.Atividade;
-import com.gft.desafiomvc.models.Evento;
-import com.gft.desafiomvc.models.Participante;
-import com.gft.desafiomvc.repository.AtividadeRepository;
 import com.gft.desafiomvc.service.AtividadeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,7 +29,7 @@ public class AtividadeController {
 
     @RequestMapping("/atividades")
     public ModelAndView listaAtividade() {
-        ModelAndView mv = new ModelAndView("index");
+        ModelAndView mv = new ModelAndView("layout");
         Iterable<Atividade> atividades = atividadeService.bucarTodos();
         mv.addObject("atividades", atividades);
         return mv;

@@ -31,7 +31,7 @@ public class GrupoController {
 
     @RequestMapping("/grupos")
     public ModelAndView listaGrupo(){
-        ModelAndView mv = new ModelAndView("index");
+        ModelAndView mv = new ModelAndView("layout");
         Iterable<Grupo> grupos = grupoService.listarGrupo();
         mv.addObject("grupos",grupos);
         return mv;
