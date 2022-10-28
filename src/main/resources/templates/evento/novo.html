@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<meta charset="UTF-8">
+<div layout:fragment="content">
+    <div class="card">
+        <div class="card-header">
+            <p class="text-primary">Novo Evento</p>
+        </div>
+        <div class="card-body">
+                <div class="form-group mb-3">
+                    <label for="nome">Nome:</label><input
+                        class="form-control" type="text"></input>
+                    </div>
+            <div class="form-group mb-3">
+                <label for="nome">Data entrada:</label><input
+                    class="form-control" type="date"></input>
+            </div>
+            <div class="form-group mb-3">
+                <label for="nome">Data saida:</label><input
+                    class="form-control" type="date"></input>
+            </div>
+                <button type="submit" class="btn btn-primary">Salvar
+                   Evento</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</html>

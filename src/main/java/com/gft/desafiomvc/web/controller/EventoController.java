@@ -2,7 +2,6 @@ package com.gft.desafiomvc.web.controller;
 
 
 import com.gft.desafiomvc.models.Evento;
-import com.gft.desafiomvc.repository.EventoRepository;
 import com.gft.desafiomvc.service.EventoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@RequestMapping("evento")
 public class EventoController {
 
 
@@ -19,9 +19,11 @@ public class EventoController {
 
 
 
-    @RequestMapping(value = "/cadastrarEvento", method = RequestMethod.GET)
-    public String form() {
-        return "evento/formEvento";
+    @RequestMapping(path = "novo")
+    public ModelAndView novoEvento() {
+        ModelAndView mv = new ModelAndView("evento/novo.html");
+        mv.addObject("evento", new Evento());
+        return mv;
 
     }
 

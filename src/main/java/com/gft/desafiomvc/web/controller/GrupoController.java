@@ -28,7 +28,6 @@ public class GrupoController {
 
     }
 
-
     @RequestMapping("/grupos")
     public ModelAndView listaGrupo(){
         ModelAndView mv = new ModelAndView("layout");
