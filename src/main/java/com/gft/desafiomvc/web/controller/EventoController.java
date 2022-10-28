@@ -13,10 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("evento")
 public class EventoController {
 
-
     @Autowired
     private EventoService eventoService;
-
 
 
     @RequestMapping(path = "novo")
@@ -27,20 +25,24 @@ public class EventoController {
 
     }
 
-    @RequestMapping(value = "/cadastrarEvento", method = RequestMethod.POST)
-    public String form(Evento evento) {
+    @RequestMapping(method = RequestMethod.POST, path = "novo")
+    public ModelAndView savlvarParticipante(Evento evento) {
+        ModelAndView mv = new ModelAndView("evento/novo.html");
+        mv.addObject("evento", new Evento());
         eventoService.saveEvento(evento);
-        return "redirect:/cadastrarEvento";
+        return mv;
     }
 
 
-    @RequestMapping(value = "/eventos",method = RequestMethod.GET)
+   /* @RequestMapping(value = "/eventos",method = RequestMethod.GET)
     public ModelAndView listaEventos() {
         ModelAndView mv = new ModelAndView("listaEvento.html");
         Iterable<Evento> eventos = eventoService.listarEvento();
         mv.addObject("eventos", eventos);
         return mv;
     }
+
+    */
 
 
 }
