@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<meta charset="UTF-8">
+<div layout:fragment="content">
+  <div class="card">
+    <div class="card-header">
+      <p class="text-primary">Novo Participante</p>
+    </div>
+    <div class="card-body">
+      <form method="POST" th:object="${participante}">
+      <div class="form-group mb-3">
+        <label for="nome">Nome:</label><input
+              class="form-control" type="text" required name="nome"></input>
+      </div>
+      <div class="form-group mb-3">
+        <label for="nome">Email:</label><input
+              class="form-control" type="email" required name="email"></input>
+      </div>
+      <div class="form-group mb-3">
+        <label for="nome">  QuatroLetra:</label><input
+              class="form-control" type="text" required name="quatroLetras"></input>
+      </div>
+      <button type="submit" class="btn btn-primary">Salvar
+        Participante</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+</html>l>

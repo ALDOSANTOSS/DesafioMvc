@@ -7,25 +7,27 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@RequestMapping("participante")
 public class ParticipanteController {
 
     @Autowired
     private ParticipanteService participanteService;
 
-    @RequestMapping(value = "/cadastrarParticipante", method = RequestMethod.GET)
-    public String form() {
-        return "/participante/formParticipante";
+    @RequestMapping(path = "novo")
+    public ModelAndView novoParticipante() {
+        ModelAndView mv = new ModelAndView("participante/novo.html");
+        mv.addObject("participante", new Participante());
+        return mv;
     }
 
-
-    @RequestMapping(value = "cadastrarParticipante", method = RequestMethod.POST)
-    public String form(Participante participante) {
+    @RequestMapping(method = RequestMethod.POST, path = "novo")
+    public ModelAndView savlvarParticipante(Participante participante) {
+        ModelAndView mv = new ModelAndView("participante/novo.html");
+        mv.addObject("participante", new Participante());
         participanteService.saveParticipante(participante);
-        return "redirect:/cadastrarParticipantes";
-
+        return mv;
     }
-
-
 }

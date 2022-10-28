@@ -10,18 +10,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@RequestMapping("grupo")
 public class GrupoController {
 
 
     @Autowired
     private GrupoService grupoService;
 
-    @RequestMapping(value = "cadastrarGrupo", method = RequestMethod.GET)
-    public String form() {
-        return "grupo/formGrupo";
+
+    @RequestMapping(path = "novo")
+    public ModelAndView novoGrupo() {
+        ModelAndView mv = new ModelAndView("grupo/novo.html");
+        mv.addObject("grupo", new Grupo());
+        return mv;
     }
 
-    @RequestMapping(value = "cadastrarGrupo", method = RequestMethod.POST)
+    /*@RequestMapping(value = "cadastrarGrupo", method = RequestMethod.POST)
     public String form(Grupo grupo) {
         grupoService.saveGrupo(grupo);
         return "redirect:/cadastrarGrupo";
@@ -34,10 +38,7 @@ public class GrupoController {
         Iterable<Grupo> grupos = grupoService.listarGrupo();
         mv.addObject("grupos",grupos);
         return mv;
-    }
-
-
-
+    }*/
 
 
 }
