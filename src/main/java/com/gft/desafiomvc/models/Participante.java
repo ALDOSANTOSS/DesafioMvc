@@ -8,7 +8,6 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-
 public class Participante implements Serializable{
 
     private static final long serialVersionUID = 1L;
@@ -36,13 +35,7 @@ public class Participante implements Serializable{
     private List<Atividade> atividades;
 
 
-    public Long getCodigo() {
-        return id;
-    }
 
-    public void setCodigo(Long codigo) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;
@@ -68,5 +61,27 @@ public class Participante implements Serializable{
         this.quatroLetras = quatroLetras;
     }
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<Grupo> getGrupos() {
+        return grupos;
+    }
+
+    public void setGrupos(List<Grupo> grupos) {
+        this.grupos = grupos;
+    }
+
+    public List<Atividade> getAtividades() {
+        return atividades;
+    }
+
+    public void setAtividades(List<Atividade> atividades) {
+        this.atividades = atividades;
+    }
 }

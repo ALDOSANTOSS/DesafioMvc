@@ -26,7 +26,7 @@ public class EventoController {
     }
 
     @RequestMapping(method = RequestMethod.POST, path = "novo")
-    public ModelAndView savlvarEvento(Evento evento) {
+    public ModelAndView salvarEvento(Evento evento) {
         ModelAndView mv = new ModelAndView("evento/novo.html");
         mv.addObject("evento", new Evento());
         eventoService.saveEvento(evento);

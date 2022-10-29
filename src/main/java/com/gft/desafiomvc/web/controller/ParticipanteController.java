@@ -4,7 +4,6 @@ import com.gft.desafiomvc.models.Participante;
 import com.gft.desafiomvc.service.ParticipanteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,10 +23,19 @@ public class ParticipanteController {
     }
 
     @RequestMapping(method = RequestMethod.POST, path = "novo")
-    public ModelAndView savlvarParticipante(Participante participante) {
+    public ModelAndView salvarParticipante(Participante participante) {
         ModelAndView mv = new ModelAndView("participante/novo.html");
         mv.addObject("participante", new Participante());
         participanteService.saveParticipante(participante);
         return mv;
+    }
+
+
+    @RequestMapping
+    public ModelAndView listarParticipante(){
+        ModelAndView mv = new ModelAndView("participante/listar.html");
+        mv.addObject("lista",participanteService.participantesTodos());
+        return mv;
+
     }
 }
