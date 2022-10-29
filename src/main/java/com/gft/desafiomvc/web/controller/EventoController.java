@@ -26,7 +26,7 @@ public class EventoController {
     }
 
     @RequestMapping(method = RequestMethod.POST, path = "novo")
-    public ModelAndView savlvarParticipante(Evento evento) {
+    public ModelAndView savlvarEvento(Evento evento) {
         ModelAndView mv = new ModelAndView("evento/novo.html");
         mv.addObject("evento", new Evento());
         eventoService.saveEvento(evento);
@@ -34,15 +34,13 @@ public class EventoController {
     }
 
 
-   /* @RequestMapping(value = "/eventos",method = RequestMethod.GET)
-    public ModelAndView listaEventos() {
-        ModelAndView mv = new ModelAndView("listaEvento.html");
-        Iterable<Evento> eventos = eventoService.listarEvento();
-        mv.addObject("eventos", eventos);
+    @RequestMapping
+    public ModelAndView listarEvento(){
+        ModelAndView mv = new ModelAndView("evento/listar.html");
+        mv.addObject("lista",eventoService.listarEvento());
         return mv;
-    }
 
-    */
+    }
 
 
 }

@@ -1,6 +1,7 @@
 package com.gft.desafiomvc.web.controller;
 
 
+import com.gft.desafiomvc.models.Evento;
 import com.gft.desafiomvc.models.Grupo;
 import com.gft.desafiomvc.service.GrupoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,20 +26,20 @@ public class GrupoController {
         return mv;
     }
 
-    /*@RequestMapping(value = "cadastrarGrupo", method = RequestMethod.POST)
-    public String form(Grupo grupo) {
+    @RequestMapping(method = RequestMethod.POST, path = "novo")
+    public ModelAndView savlvarGrupo(Grupo grupo) {
+        ModelAndView mv = new ModelAndView("grupo/novo.html");
+        mv.addObject("grupo", new Grupo());
         grupoService.saveGrupo(grupo);
-        return "redirect:/cadastrarGrupo";
-
+        return mv;
     }
 
-    @RequestMapping("/grupos")
-    public ModelAndView listaGrupo(){
-        ModelAndView mv = new ModelAndView("layout");
-        Iterable<Grupo> grupos = grupoService.listarGrupo();
-        mv.addObject("grupos",grupos);
+    @RequestMapping
+    public ModelAndView listarGrupo(){
+        ModelAndView mv = new ModelAndView("grupo/listar.html");
+        mv.addObject("lista",grupoService.listarGrupo());
         return mv;
-    }*/
 
+    }
 
 }

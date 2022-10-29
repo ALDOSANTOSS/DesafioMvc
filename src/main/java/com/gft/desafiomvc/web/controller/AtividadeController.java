@@ -24,19 +24,22 @@ public class AtividadeController {
         return mv;
     }
 
-    /* @RequestMapping(value = "/cadastrarAtividade", method = RequestMethod.POST)
-    public String form(Atividade atividade) {
+    @RequestMapping(method = RequestMethod.POST, path = "novo")
+    public ModelAndView savlvarParticipante(Atividade atividade) {
+        ModelAndView mv = new ModelAndView("atividade/novo.html");
+        mv.addObject("atividade", new Evento());
         atividadeService.saveAtividade(atividade);
-        return "redirect:/cadastrarAtividade";
-    } */
-
-    /* @RequestMapping("/atividades")
-    public ModelAndView listaAtividade() {
-        ModelAndView mv = new ModelAndView("layout");
-        Iterable<Atividade> atividades = atividadeService.bucarTodos();
-        mv.addObject("atividades", atividades);
         return mv;
-    }*/
+    }
+    @RequestMapping
+    public ModelAndView listarAtividade(){
+        ModelAndView mv = new ModelAndView("atividade/listar.html");
+        mv.addObject("lista",atividadeService.bucarTodos());
+        return mv;
+
+    }
+
+
 
 
 }

@@ -9,13 +9,14 @@
       <p class="text-primary">Novo Grupo</p>
     </div>
     <div class="card-body">
+      <form method="POST" th:object="${grupo}">
       <div class="form-group mb-3">
         <label for="nome">Nome:</label><input
-              class="form-control" type="text"></input>
+              class="form-control" type="text" required name="nome"></input>
       </div>
       <div class="form-group mb-3">
         <label for="nome">Quantidade Participante:</label><input
-              class="form-control" type="number"></input>
+              class="form-control" type="number" required name="quantidadeDeParticipante"></input>
       </div>
       <button type="submit" class="btn btn-primary">Salvar
         Grupo</button>

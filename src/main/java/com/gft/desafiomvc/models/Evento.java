@@ -2,7 +2,7 @@ package com.gft.desafiomvc.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
+
 import java.util.List;
 
 
@@ -14,7 +14,7 @@ public class Evento implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long codigo;
+    private Long id;
 
     private String nome;
     private String dataEntrada;
@@ -28,14 +28,12 @@ public class Evento implements Serializable {
     private List<Grupo> grupos;
 
 
-
-
-    public Long getCodigo() {
-        return codigo;
+    public Long getId() {
+        return id;
     }
 
-    public void setCodigo(Long codigo) {
-        this.codigo = codigo;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getDataEntrada() {
@@ -60,5 +58,21 @@ public class Evento implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public List<Atividade> getAtividades() {
+        return atividades;
+    }
+
+    public void setAtividades(List<Atividade> atividades) {
+        this.atividades = atividades;
+    }
+
+    public List<Grupo> getGrupos() {
+        return grupos;
+    }
+
+    public void setGrupos(List<Grupo> grupos) {
+        this.grupos = grupos;
     }
 }

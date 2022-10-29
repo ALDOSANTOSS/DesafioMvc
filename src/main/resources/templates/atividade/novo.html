@@ -9,17 +9,18 @@
       <p class="text-primary">Nova Atividade</p>
     </div>
     <div class="card-body">
+      <form method="POST" th:object="${atividade}">
       <div class="form-group mb-3">
         <label for="nome">Nome:</label><input
-              class="form-control" type="text"></input>
+              class="form-control" type="text" required name="nome"> </input>
       </div>
       <div class="form-group mb-3">
         <label for="nome">Data entrada:</label><input
-              class="form-control" type="date"></input>
+              class="form-control" type="date" required name="dataEntrada"></input>
       </div>
       <div class="form-group mb-3">
         <label for="nome">Data saida:</label><input
-              class="form-control" type="date"></input>
+              class="form-control" type="date" required name="dataSaida"></input>
       </div>
       <button type="submit" class="btn btn-primary">Salvar
         Atividade</button>

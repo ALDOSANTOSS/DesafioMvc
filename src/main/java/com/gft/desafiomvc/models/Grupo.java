@@ -14,7 +14,7 @@ public class Grupo implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long codigo;
+    private Long id;
 
     @Column(name = "nome", nullable = false, unique = true, length = 60)
     private String nome;
@@ -30,14 +30,28 @@ public class Grupo implements Serializable {
     private List<Participante> participantes;
 
 
-
-
-    public Long getCodigo() {
-        return codigo;
+    public Long getId() {
+        return id;
     }
 
-    public void setCodigo(Long codigo) {
-        this.codigo = codigo;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Evento getEventos() {
+        return eventos;
+    }
+
+    public void setEventos(Evento eventos) {
+        this.eventos = eventos;
+    }
+
+    public List<Participante> getParticipantes() {
+        return participantes;
+    }
+
+    public void setParticipantes(List<Participante> participantes) {
+        this.participantes = participantes;
     }
 
     public String getNome() {
