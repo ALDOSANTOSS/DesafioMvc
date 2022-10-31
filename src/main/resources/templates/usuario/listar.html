@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <div layout:fragment="content">
   <div class="alert alert-primary" th:if="${#lists.isEmpty(lista)}">
-    Nenhuma participante usuário
+    Nenhuma usuário
   </div>
   <div class="alert alert-primary" th:if="${mensagem != null}" th:text="${mensagem}"></div>
   <div th:if="${not #lists.isEmpty(lista)}">
