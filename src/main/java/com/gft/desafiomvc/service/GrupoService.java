@@ -1,6 +1,5 @@
 package com.gft.desafiomvc.service;
 
-import com.gft.desafiomvc.models.Evento;
 import com.gft.desafiomvc.models.Grupo;
 import com.gft.desafiomvc.repository.GrupoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +27,7 @@ public class GrupoService {
         return grupoRepository.findAll();
     }
 
-    public Grupo obterEvento(Long id) throws Exception {
+    public Grupo obterGrupo(Long id) throws Exception {
         Optional<Grupo> grupo = grupoRepository.findById(id);
         if (grupo.isEmpty()) {
             throw new Exception("Grupo não encontrado");

@@ -1,6 +1,7 @@
 package com.gft.desafiomvc.web.controller;
 
 
+import com.gft.desafiomvc.models.Evento;
 import com.gft.desafiomvc.models.Participante;
 import com.gft.desafiomvc.models.Usuario;
 import com.gft.desafiomvc.service.UsuarioService;
@@ -33,10 +34,11 @@ public class UsuarioController {
         usuarioService.saveUsuario(usuario);
         return mv;
     }
+
     @RequestMapping
-    public ModelAndView listarUsuario(){
+    public ModelAndView listarUsuario() {
         ModelAndView mv = new ModelAndView("usuario/listar.html");
-        mv.addObject("lista",usuarioService.listaUsuario());
+        mv.addObject("lista", usuarioService.listaUsuario());
         return mv;
 
     }
@@ -56,6 +58,23 @@ public class UsuarioController {
         return mv;
     }
 
+    @RequestMapping("/editar")
+    public ModelAndView editarUsuario(@RequestParam Long id) {
+
+        ModelAndView mv = new ModelAndView("usuario/novo.html");
+        Usuario usuario;
+
+        try {
+            usuario = usuarioService.obterUsuario(id);
+        } catch (Exception e) {
+            usuario = new Usuario();
+            mv.addObject("mensagem", e.getMessage());
+        }
+
+        mv.addObject("usuario", usuario);
+
+        return mv;
+    }
 
 
 }

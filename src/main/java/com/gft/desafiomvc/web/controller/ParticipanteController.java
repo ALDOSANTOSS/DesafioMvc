@@ -1,5 +1,6 @@
 package com.gft.desafiomvc.web.controller;
 
+import com.gft.desafiomvc.models.Atividade;
 import com.gft.desafiomvc.models.Participante;
 import com.gft.desafiomvc.service.ParticipanteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,25 @@ public class ParticipanteController {
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("mensagem", "Erro ao excluir participante!" + e.getMessage());
         }
+
+        return mv;
+    }
+
+
+    @RequestMapping("/editar")
+    public ModelAndView editarParticipante(@RequestParam Long id) {
+
+        ModelAndView mv = new ModelAndView("participante/novo.html");
+        Participante participante ;
+
+        try {
+            participante = participanteService.ObterParticipante(id);
+        }catch(Exception e) {
+            participante = new Participante();
+            mv.addObject("mensagem", e.getMessage());
+        }
+
+        mv.addObject("participante", participante);
 
         return mv;
     }

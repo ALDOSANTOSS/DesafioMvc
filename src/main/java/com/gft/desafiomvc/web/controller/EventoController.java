@@ -5,11 +5,11 @@ import com.gft.desafiomvc.models.Evento;
 import com.gft.desafiomvc.service.EventoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("evento")
@@ -58,6 +58,25 @@ public class EventoController {
 
         return mv;
     }
+
+    @RequestMapping("/editar")
+    public ModelAndView editarEvento(@RequestParam Long id) {
+
+        ModelAndView mv = new ModelAndView("evento/novo.html");
+        Evento evento;
+
+        try {
+            evento = eventoService.obterEvento(id);
+        }catch(Exception e) {
+            evento = new Evento();
+            mv.addObject("mensagem", e.getMessage());
+        }
+
+        mv.addObject("evento", evento);
+
+        return mv;
+    }
+
 
 
 }

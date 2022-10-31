@@ -9,7 +9,8 @@
             <p class="text-primary">Novo Evento</p>
         </div>
         <div class="card-body">
-            <form method="POST" th:object="${evento}">
+            <form method="POST" th:object="${evento}" th:action="@{/evento/novo}">
+                <input type="hidden" th:field="*{id}">
                 <div class="form-group mb-3">
                     <label for="nome">Nome:</label><input
                         class="form-control" type="text" required name="nome"></input>

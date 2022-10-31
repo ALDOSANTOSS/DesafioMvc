@@ -57,6 +57,25 @@ public class AtividadeController {
     }
 
 
+    @RequestMapping("/editar")
+    public ModelAndView editarAtividade(@RequestParam Long id) {
+
+        ModelAndView mv = new ModelAndView("atividade/novo.html");
+       Atividade atividade;
+
+        try {
+            atividade = atividadeService.buscarPorId(id);
+        }catch(Exception e) {
+            atividade = new Atividade();
+            mv.addObject("mensagem", e.getMessage());
+        }
+
+        mv.addObject("atividade", atividade);
+
+        return mv;
+    }
+
+
 
 
 }

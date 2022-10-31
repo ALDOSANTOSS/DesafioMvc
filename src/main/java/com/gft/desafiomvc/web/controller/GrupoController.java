@@ -1,6 +1,7 @@
 package com.gft.desafiomvc.web.controller;
 
 
+import com.gft.desafiomvc.models.Atividade;
 import com.gft.desafiomvc.models.Evento;
 import com.gft.desafiomvc.models.Grupo;
 import com.gft.desafiomvc.service.GrupoService;
@@ -55,6 +56,24 @@ public class GrupoController {
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("mensagem", "Erro ao excluir grupo!" + e.getMessage());
         }
+
+        return mv;
+    }
+
+    @RequestMapping("/editar")
+    public ModelAndView editarGrupo(@RequestParam Long id) {
+
+        ModelAndView mv = new ModelAndView("grupo/novo.html");
+        Grupo grupo;
+
+        try {
+            grupo = grupoService.obterGrupo(id);
+        } catch (Exception e) {
+            grupo = new Grupo();
+            mv.addObject("mensagem", e.getMessage());
+        }
+
+        mv.addObject("grupo", grupo);
 
         return mv;
     }
