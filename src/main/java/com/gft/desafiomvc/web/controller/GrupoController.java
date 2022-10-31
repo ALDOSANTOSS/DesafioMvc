@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("grupo")
@@ -35,11 +37,26 @@ public class GrupoController {
     }
 
     @RequestMapping
-    public ModelAndView listarGrupo(){
+    public ModelAndView listarGrupo() {
         ModelAndView mv = new ModelAndView("grupo/listar.html");
-        mv.addObject("lista",grupoService.listarGrupo());
+        mv.addObject("lista", grupoService.listarGrupo());
         return mv;
 
+    }
+
+    @RequestMapping("/excluir")
+    public ModelAndView excluirGrupo(@RequestParam Long id, RedirectAttributes redirectAttributes) {
+
+        ModelAndView mv = new ModelAndView("redirect:/grupo");
+
+        try {
+            grupoService.deleteGrupo(id);
+            redirectAttributes.addFlashAttribute("mensagem", "Grupo excluído com sucesso.");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("mensagem", "Erro ao excluir grupo!" + e.getMessage());
+        }
+
+        return mv;
     }
 
 }

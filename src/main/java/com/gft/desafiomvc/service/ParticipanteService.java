@@ -20,7 +20,7 @@ public class ParticipanteService {
     }
 
     public void deleteParticipante(Long id) {
-        participanteRepository.findById(id);
+        participanteRepository.deleteById(id);
     }
 
     public List<Participante> participantesTodos() {

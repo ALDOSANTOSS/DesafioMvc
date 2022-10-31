@@ -27,7 +27,7 @@ public class EventoService {
         return eventoRepository.findAll();
     }
 
-    public Evento obterLinguagem(Long id) throws Exception {
+    public Evento obterEvento(Long id) throws Exception {
         Optional<Evento> evento = eventoRepository.findById(id);
 
         if (evento.isEmpty()) {

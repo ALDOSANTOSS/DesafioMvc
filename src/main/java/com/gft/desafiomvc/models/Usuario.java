@@ -13,7 +13,7 @@ public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long codigo;
+    private Long id;
 
 
     @NotEmpty(message = "Nome não pode ser vazio")
@@ -28,13 +28,7 @@ public class Usuario implements Serializable {
 
     private String senha;
 
-    public Long getCodigo() {
-        return codigo;
-    }
 
-    public void setCodigo(Long codigo) {
-        this.codigo = codigo;
-    }
 
     public String getNome() {
         return nome;
@@ -66,5 +60,13 @@ public class Usuario implements Serializable {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

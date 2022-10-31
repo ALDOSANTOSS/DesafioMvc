@@ -25,7 +25,7 @@ public class AtividadeController {
     }
 
     @RequestMapping(method = RequestMethod.POST, path = "novo")
-    public ModelAndView savlvarParticipante(Atividade atividade) {
+    public ModelAndView savlvarAtividade(Atividade atividade) {
         ModelAndView mv = new ModelAndView("atividade/novo.html");
         mv.addObject("atividade", new Evento());
         atividadeService.saveAtividade(atividade);
