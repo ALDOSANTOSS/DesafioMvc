@@ -69,4 +69,6 @@ public class Usuario implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+
 }
